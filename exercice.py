@@ -6,29 +6,82 @@ from typing import List
 
 
 def convert_to_absolute(number: float) -> float:
-    return 0
+    if number < 0 :
+        number *= -1
+
+    return number
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
+    names = []
+    for elements in prefixes :
+        names.append(elements + suffixe)
 
-    return [""]
+    return names
 
 
 def prime_integer_summation() -> int:
-    return 0
+    import math 
+    first100_primes = [2, 3]
+    prime_nb = 2
+    test_value = 4
+    while prime_nb < 100 :
+      last_potentialDivider = int(math.sqrt(test_value))+1
+      for potentialDividers in range(2 , last_potentialDivider) :
+              if test_value % potentialDividers == 0 :
+                    break
+              elif potentialDividers < (last_potentialDivider-1) :
+                    continue
+              else: first100_primes.append(test_value)
+              prime_nb += 1 
+      test_value +=1
+  
+    return sum(first100_primes)
 
 
 def factorial(number: int) -> int:
-    return 0
+    result = 1
+    while number > 1 :
+        result *= number
+        number -= 1
+
+    return result
 
 
 def use_continue() -> None:
-    pass
+    for number in range(1,11) :
+        if number == 5 :
+            continue
+        else : print(number)
+    
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    acceptency = []
+    for group_nb in groups :
+        members = len(group_nb)
+        if members <= 3  :
+            result = False
+        elif members > 10 : 
+            result = False
+        else : 
+            result = True
+            for i, age in enumerate(group_nb) : 
+                if age < 18 :
+                    result = False
+                    continue
+                elif age == 25 : 
+                    result = True
+                    break
+                elif age == 50 : 
+                    for age in group_nb :
+                        if age > 70 : 
+                            result = False
+                        else : break
+                else : continue
+        acceptency.append(result)
+    return acceptency
 
 
 def main() -> None:
