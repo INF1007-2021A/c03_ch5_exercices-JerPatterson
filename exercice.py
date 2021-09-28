@@ -9,12 +9,13 @@ def convert_to_absolute(number: float) -> float:
     if number < 0 :
         number *= -1
 
-    return number
+    return number   # En une seule ligne : return number if number > 0 else number * -1
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
     names = []
+
     for elements in prefixes :
         names.append(elements + suffixe)
 
@@ -53,7 +54,7 @@ def use_continue() -> None:
     for number in range(1,11) :
         if number == 5 :
             continue
-        else : print(number)
+        print(number)
     
 
 
